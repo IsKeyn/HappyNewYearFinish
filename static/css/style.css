@@ -1,0 +1,426 @@
+@font-face {
+	font-family: 'Ouroboros';
+	src: url('../fonts/Ouroboros.otf') format("opentype");
+	font-weight: 100;
+	font-style: normal;
+}
+
+:root {
+	--main-bg-color-1: #000;
+	--main-bg-color-2: #fff;
+	--main-color-1: #650000;
+	--main-color-2: #fff;
+}
+
+body {
+	background: var(--main-bg-color-1) url("../img/background.jpg") repeat;
+	background-size: 100% auto;
+	background-position: top;
+	font-family: Ouroboros;
+}
+
+.vein {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.main {
+	background: var(--main-bg-color-2);
+	z-index: 10;
+	position: relative;
+}
+
+header {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+@media (max-width: 768px) {
+	header {
+		padding-top: 65px;
+	}
+}
+
+/* Меню */
+nav {
+	font-size: 0px;
+}
+
+nav .visible-elements,
+nav .hidden-elements {
+	display: inline-block;
+}
+
+nav .visible-elements {
+	width: calc(100% - 50px);
+}
+
+nav .hidden-elements {
+	width: 50px;
+}
+
+nav .visible-elements span,
+nav .hidden-elements span {
+	font-size: 16px;
+	padding: 10px 10px 10px 10px;
+	background: var(--main-color-1);
+	color: var(--main-color-2);
+	cursor: pointer;
+}
+
+nav .visible-elements span {
+	display: inline-block;
+	width: calc(25% - 1px);
+	padding: 10px 10px 10px 10px;
+	margin-right: 1px;
+}
+
+nav .hidden-elements span.menu-extension-button {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+nav .hidden-elements .menu-extension-block {
+	display: none;
+	position: absolute;
+	right: 0px;
+	font-size: 14px;
+	z-index: 15;
+}
+
+nav .hidden-elements .menu-extension-block span {
+	display: block;
+	min-width: 250px;
+	margin-top: 1px;
+}
+
+nav .visible-elements span:hover,
+nav .hidden-elements span.menu-extension-button:hover,
+nav .hidden-elements .menu-extension-block span:hover {
+	opacity: 0.9;
+}
+
+nav .hidden-elements:hover .menu-extension-block {
+	display: block;
+}
+
+.mobile-menu-open-button {
+	display: none;
+}
+
+nav i.close-mobile-menu {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.mobile-menu-open-button {
+		display: block;
+		cursor: pointer;
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		font-size: 25px;
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		z-index: 150;
+		height: 100%;
+		border-right: 1px solid #c5c5c5;
+		display: none;
+	}
+
+	nav i.close-mobile-menu {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 20px;
+		cursor: pointer;
+		z-index: 10;
+		font-size: 22px;
+	}
+
+	nav .wrapper-inside {
+		min-width: 200px;
+		height: 100%;
+		background: #fff;
+		padding: 15px;
+		padding-right: 50px;
+	}
+
+	nav .wrapper-inside .visible-elements,
+	nav .wrapper-inside .hidden-elements {
+		display: block;
+		width: unset;
+	}
+
+	nav .wrapper-inside .hidden-elements span.menu-extension-button {
+		display: none;
+	}
+
+	nav .wrapper-inside .hidden-elements .menu-extension-block {
+		display: block;
+		position: relative;
+		right: 0;
+	}
+
+	nav .wrapper-inside .visible-elements span,
+	nav .wrapper-inside .hidden-elements span {
+		display: block;
+		width: 100%;
+		background: unset;
+		color: #000000;
+		padding: unset;
+		border-bottom: 1px solid #c5c5c5;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 16px;
+	}
+}
+
+/* Слайдер */
+.slider-block {
+	position: relative;
+}
+
+.slider-block .slider div {
+	height: 350px;
+	position: relative;
+}
+
+.slider-block .nav-left,
+.slider-block .nav-right {
+	position: absolute;
+	top: calc(50% - 32px);
+	height: 64px;
+	font-size: 65px;
+	color: #fff;
+	z-index: 1;
+	cursor: pointer;
+	display: none!important;
+}
+
+.slider-block .nav-left {
+	left: 10px;
+}
+
+.slider-block .nav-right {
+	right: 10px;
+}
+
+.slider-block .nav-left:hover,
+.slider-block .nav-right:hover {
+	color: var(--main-color-1);
+}
+
+.slider-block:hover .nav-left,
+.slider-block:hover .nav-right {
+	display: block!important;
+}
+
+.slider-block .slider div span.text-box {
+	position: absolute;
+	right: 0;
+	bottom: 30px;
+	background: var(--main-color-1);
+	padding: 10px 15px 10px 50px;
+	font-size: 25px;
+	text-transform: uppercase;
+	color: var(--main-color-2);
+}
+
+@media (max-width: 768px) {
+	.slider-block .slider div {
+		height: 155px;
+	}
+
+	.slider-block .slider div span.text-box {
+		bottom: 0;
+		width: 100%;
+		height: 40px;
+		padding: 10px 15px 10px 15px;
+		font-size: 8px;
+	}
+}
+
+/* Блок товаров */
+section.product-box {
+	margin: 30px 20px 30px 20px;
+}
+
+section.product-box h2 {
+	margin-bottom: 20px;
+}
+
+section.product-box .product {
+	min-height: 250px;
+	margin-bottom: 30px;
+}
+
+section.product-box .product .product-pic {
+	min-height: 270px;
+}
+
+section.product-box .product .product-name {
+	display: block;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.product button {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	width: 66%;
+	margin-left: -33%;
+	background: var(--main-color-1);
+	border: none;
+	text-transform: uppercase;
+	padding: 10px 30px 10px 30px;
+	color: white;
+	display: none;
+}
+
+.product:hover button {
+	display: block;
+}
+
+/* Футер */
+footer {
+	min-height: 100px;
+	margin-right: -15px;
+	margin-left: -15px;
+	background: var(--main-color-1);
+	color: var(--main-color-2);
+	text-align: center;
+	font-size: 20px;
+	line-height: 95px;
+
+}
+
+/* Попап окно */
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: default;
+}
+
+.popup {
+	position: fixed;
+	width: 600px;
+	left: 50%;
+	margin-left: -300px;
+	height: 500px;
+	top: 50%;
+	margin-top: -250px;
+	z-index: 1000;
+	display: none;
+	background: #fff;
+	padding: 20px;
+}
+
+/* Форма оформления заказа */
+.popup h3 {
+	border-bottom: 1px solid var(--main-color-1);
+	color: var(--main-color-1);
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.popup .close-popup {
+	position: absolute;
+	font-size: 30px;
+	top: 25px;
+	right: 35px;
+	color: var(--main-color-1);
+	cursor: pointer;
+}
+
+.popup input[type=text] {
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	border: none;
+	border-bottom: 1px solid #666;
+	padding-bottom: 5px;
+}
+
+.popup textarea {
+	margin-top: 20px;
+	border: none;
+	width: 100%;
+	border-bottom: 1px solid #666;
+	border-left: 1px solid #666;
+	padding: 10px;
+	min-height: 150px;
+}
+
+.popup button {
+	display: block;
+	background: var(--main-color-1);
+	border: none;
+	text-transform: uppercase;
+	padding: 10px 30px 10px 30px;
+	color: white;
+	width: 300px;
+	margin: 10px auto;
+}
+
+/* Таймер */
+.timer-main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 310px;
+	width: 1000px;
+	margin-top: -155px;
+	margin-left: -500px;
+	background: none;
+	text-align: center;
+}
+
+.timer-main > .title {
+	display: block;
+	font-size: 60px;
+	text-transform: uppercase;
+	color: var(--main-color-2);
+}
+
+.timer {
+	display: inline-block;
+	color: var(--main-color-2);
+	font-size: 30px;
+	font-weight: 100;
+	text-align: center;
+}
+
+.timer > div {
+	padding: 10px;
+	border-radius: 3px;
+	background: var(--main-color-1);
+	display: inline-block;
+}
+
+.timer div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: var(--main-color-1);
+	display: inline-block;
+}
+
+.small-text{
+	padding-top: 5px;
+	font-size: 16px;
+}
